@@ -1,13 +1,13 @@
 import {Page, NavController} from 'ionic-angular';
 import {AddItemPage} from '../add-item/add-item';
 import {ItemDetailPage} from '../item-detail/item-detail';
+import { Item } from '../../item';
 
-/// TODONEXT: Define an Item Class and use it for this project
 @Page({
   templateUrl: 'build/pages/home/home.html'
 })
 export class HomePage {
-  items : any[] = [];
+  items : Item[] = [];
     
   constructor(private nav : NavController) {}
   
@@ -15,11 +15,11 @@ export class HomePage {
     this.nav.push(AddItemPage, {homePage: this});
   }
   
-  saveItem(item : any){
+  saveItem(item : Item){
     this.items.push(item);
   }
   
-  viewItem(item : any) {
+  viewItem(item : Item) {
     this.nav.push(ItemDetailPage, {item :item});
   }
 }
